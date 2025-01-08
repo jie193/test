@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>点名系统</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>点名系统</h1>
+        <form action="point" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="uploadFile">
+            <label for="file">更新学生信息，上传.xlsx文件:</label>
+            <input type="file" id="file" name="file" accept=".xlsx">
+            <button type="submit" class="btn2">更新</button>
+        </form>
+        <br>
+        <a href="point?action=randomCall" class="btn1">点名</a>
+        <a href="point?action=statistics" class="btn1">学生信息</a>
+    </div>
+</body>
+</html>
