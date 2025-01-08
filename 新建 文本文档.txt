@@ -1,0 +1,28 @@
+现在课堂教师点名回答问题，往往是随机点名。由于教师习惯等因素往往造成有的同学被点名次数多，有的同学被点名次数少。希望设计一个点名系统使得学生在一个学期的上课过程中可以获得相同的点名机会。
+导入学生功能：可从Excel或文本文件中导入学生信息，或者可以批量新建学生亦可。
+状态存储功能：该系统需记录每个学生的被点名次数，回答出问题的次数。
+点名功能：每次点名选择同学时需要基于该同学已经被点名的次数，如果点名超过n个同学还未回答出该问题则从已有的回答出来次数较多的同学中随机抽取。
+统计功能：可将每个学生的被点名次数、回答出问题的次数、比率统计出来。
+要求：后台存储数据库或者文件。给出构造大纲要求后端使用jdbc，使用dao模式和mvc模式，在前端处实现可视化（展示每个学生的被点名次数，回答成功次数），数据库使用mysql，
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>点名系统</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pointing System</h1>
+        <form action="point" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="uploadFile">
+            <label for="file">更新学生信息，上传.xlsx文件:</label>
+            <input type="file" id="file" name="file" accept=".xlsx">
+            <button type="submit">更新</button>
+        </form>
+        <br>
+        <a href="${pageContext.request.contextPath}/point?action=randomCall" class="btn">Random Call</a>
+        <a href="${pageContext.request.contextPath}/point?action=statistics" class="btn">View Statistics</a>
+    </div>
+</body>
+</html>
